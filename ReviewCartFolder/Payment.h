@@ -10,9 +10,19 @@ private:
 	std::string cardNum;
 	int cwid;
 	std::string billingAddress;
-	std::string country;
-	int zipcode;
+	
 public:
+	std::string getcardNum() {
+		return cardNum;
+	}
+	std::string getBillingAddress() {
+		return billingAddress;
+
+	}
+	int getcwid() {
+		return cwid;
+	}
+	
 	void addInfo() {
 		
 		std::cout << "Please add card number\n";
@@ -21,10 +31,6 @@ public:
 		std::cin >> cwid;
 		std::cout << "Please add billing address\n";
 		std::cin >> billingAddress;
-		std::cout << "Please input country\n";
-		std::cin >> country;
-		std::cout << "Please input zipcode\n";
-		std::cin >> zipcode;
 		
 
 	}

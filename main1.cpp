@@ -26,7 +26,7 @@ int main() {
 			break;
 		case 3: //Browse
 			break;
-		case 4: // Checkout
+		case 4: // Review Cart: Delete item from Shopping Cart or Checkout
 			review.checkout();
 			break;
 		case 5: //Edit profile

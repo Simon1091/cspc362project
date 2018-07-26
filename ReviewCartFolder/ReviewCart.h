@@ -10,6 +10,16 @@ private:
 	ShoppingCart cart;
 	Payment payment;
 public:
+	std::string getPaymentCardNumber() {
+		return payment.getcardNum();
+	}
+	int getPaymentCwid() {
+		return payment.getcwid();
+
+	}
+	std::string getPaymentAddress() {
+		return payment.getBillingAddress();
+	}
 	void deleteItem() {
 
 	}
