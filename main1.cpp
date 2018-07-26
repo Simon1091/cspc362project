@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include "ReviewCartFolder\ReviewCart.h"
 /*
 a) Module name or Class name in the Design
 b) Date of the code
@@ -11,6 +11,7 @@ f)  choice of a specific algorithm within service / function
 e.g.choosing quick sort rather than bubble sort etc.
 */
 int main() {
+	ReviewCart review;
 	int mainchoice;
 	do {
 		std::cout << "Home Page\n";
@@ -26,6 +27,7 @@ int main() {
 		case 3: //Browse
 			break;
 		case 4: // Checkout
+			review.checkout();
 			break;
 		case 5: //Edit profile
 			break;
