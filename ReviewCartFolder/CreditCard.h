@@ -1,5 +1,14 @@
 #pragma once
 #include <string>
+/*
+a) Module name or Class name in the Design
+b) Date of the code
+c) Programmer's name
+d) Brief  description of the class / service / function
+e)  Any important data structure in class / functions
+f)  choice of a specific algorithm within service / function
+e.g.choosing quick sort rather than bubble sort etc.
+*/
 class CreditCard {
 private:
 	std::string cardNumber;
