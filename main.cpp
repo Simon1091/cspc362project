@@ -11,24 +11,27 @@ f)  choice of a specific algorithm within service / function
 e.g.choosing quick sort rather than bubble sort etc.
 */
 int main() {
-	std::cout << "Home Page\n";
-	std::cout << "Please select 1-6\n";
 	int mainchoice;
-	std::cin >> mainchoice;
-	switch (mainchoice) {
-	case 1: //Login
-		break;
-	case 2: //Register
-		break;
-	case 3: //Browse
-		break;
-	case 4: // Checkout
-		break;
-	case 5: //Edit profile
-		break;
-	case 6: //Edit Catalog
-		break;
-	}
+	do {
+		std::cout << "Home Page\n";
+		std::cout << "Please select 1-6\n";
+		
+		std::cin >> mainchoice;
+		switch (mainchoice) {
+		case 1: //Login
+			break;
+		case 2: //Register
+			break;
+		case 3: //Browse
+			break;
+		case 4: // Checkout
+			break;
+		case 5: //Edit profile
+			break;
+		case 6: //Edit Catalog
+			break;
+		}
+	} while (mainchoice != 0);
 	system("pause");
 	return 0;
 }																	
