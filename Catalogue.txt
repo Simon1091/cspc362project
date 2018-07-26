@@ -1,0 +1,20 @@
+Computer	Electronics	5000	1	499.99
+Shoes		Apparel		4000	2	99.99
+Lamp		Furniture	300	3	19.99
+USB Stick	Electronics	200	4	9.99
+Keyboard	Electronics	100	5	39.99
+Mouse		Electronics	200	6	9.99
+Laptop		Electronics	50	7	299.99
+T-Shirt		Apparel		400	8	29.99
+Shorts		Apparel		500	9	19.99
+Jeans		Apparel		200	10	59.99
+Sunglasses	Apparel		5000	11	199.99
+Pizza		Food		3000	12	9.99
+Soda		Food		4000	13	5.99
+Hamburger	Food		5000	14	4.99
+Desk		Furniture	100	15	49.99
+Hotdog		Food		3000	16	4.99
+Chair		Furniture	500	17	44.99
+Car		Transportation	30	18	14999.99
+Bike		Transportation	500	19	399.99
+Skateboard	Transportation	200	20	49.99
