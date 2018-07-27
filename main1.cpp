@@ -12,6 +12,7 @@ e.g.choosing quick sort rather than bubble sort etc.
 */
 int main() {
 	ReviewCart review;
+	ShoppingCart cart;
 	int mainchoice;
 	do {
 		std::cout << "Home Page\n";
