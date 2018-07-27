@@ -14,8 +14,8 @@ private:
 	Shipping shipping;
 	Discount discount;
 public:
-	ReviewCart() {
-		
+	ReviewCart(ShoppingCart cart) {
+		cart = this->cart;
 	}
 
 	std::string getPaymentCardNumber() {
