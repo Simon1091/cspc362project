@@ -13,9 +13,27 @@ class CreditCard {
 private:
 	std::string cardNumber;
 	int cwid;
-	std::string expirationDate;
+	std::string expDate;
 	std::string cardHolderName;
 public:
+	CreditCard(std::string cardNumber, int cwid, std::string expDate, std::string cardHolderName) {
+		cardNumber = this->cardNumber;
+		cwid = this->cwid;
+		expDate = this->expDate;
+		cardHolderName = this->cardHolderName;
+	}
+	std::string getcardNumber() {
+		return cardNumber;
+	}
+	std::string getcardHolderName() {
+		return cardHolderName;
+	}
+	std::string getexpDate() {
+		return expDate;
+	}
+	int getcwid() {
+		return cwid;
+	}
 	void setcardNumber(std::string cardNumber) {
 		cardNumber = this->cardNumber;
 
@@ -24,8 +42,8 @@ public:
 		cwid = this->cwid;
 
 	}
-	void setexpirationDate(std::string expirationDate) {
-		expirationDate = this->expirationDate;
+	void setexpirationDate(std::string expDate) {
+		expDate = this->expDate;
 
 	}
 	void setnameOfOwner(std::string cardHolderName) {
