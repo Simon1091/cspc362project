@@ -24,7 +24,7 @@ public:
 	std::string getPaymentCardNumber() {
 		return payment.getcardNum();
 	}
-	int getPaymentCwid() {
+	std::string getPaymentCwid() {
 		return payment.getcwid();
 
 	}

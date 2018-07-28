@@ -8,8 +8,10 @@ private:
 	std::string promocodeInput;
 	double priceDeduction;
 public:
-	Discount() {}
+	Discount() { promocodeInput = "";
+	}
 	void addPromoCode(ShoppingCart& cart_) {
+		std::string userInput;
 		std::cout << "Enter promocode\n";
 		std::cin >> promocodeInput;
 		if (promocodeInput == promocodes[0]) {

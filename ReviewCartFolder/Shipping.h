@@ -9,11 +9,21 @@ private:
 	std::string mailingAddress;
 	int shippingChoice;
 public:
-	Shipping(){}
+	Shipping(){
+		mailingAddress = "";
+	}
 	void addInfo() {
+		std::string userInput;
 		std::cout << "Please input your mailing address\n";
-		std::cin.ignore();
-		std::getline(std::cin, mailingAddress);
+		while (mailingAddress == "") {
+			std::cin.ignore();
+			std::getline(std::cin, userInput);
+			if (userInput == "") {
+				std::cout << "Retry adding name\n";
+			}
+			else
+				mailingAddress = userInput;
+		}
 		
 		std::cout << "Select shipping method:\n1.Standard(7-12 days)\n2.Priority(1-2 days)3.Free(30 days)\n";
 		std::cin >> shippingChoice;
