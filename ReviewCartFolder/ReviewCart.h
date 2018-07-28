@@ -78,35 +78,6 @@ public:
 			}
 		} while (reviewChoice != 0);
 	}
-	void deleteItem(ShoppingCart& cart_) {
-		int i;
-		cart_.displayItems();
-		std::cout << "Which item do you want to delete from cart\n";
-		std::cin >> i;
-		cart_.deleteItem(i);
-		std::cout << "Cart updated\n";
-		cart_.displayItems();
-	}
-	void checkout(ShoppingCart& cart_) {
-		
-
-		do {
-			std::cout << "Please fill out order\n1.Payment\n2.Shipping\n3.Discount\n4.Confirm";
-			std::cin >> orderChoice;
-			switch (orderChoice) {
-			case 1://Payment
-				payment.addInfo();
-				break;
-			case 2://Shipping
-				shipping.addInfo();
-				break;
-			case 3://Discount
-				discount.addPromoCode(cart_);
-				break;
-			case 4://Confirm
-				break;
-			}
-
-		} while (orderChoice != 4);
-	}
+	
+	
 };
