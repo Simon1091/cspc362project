@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Payment.h"
-#include "CreditCard.h"
+
 #include "ShoppingCart.h"
 #include "Shipping.h"
 #include "Discount.h"
@@ -10,7 +10,7 @@ class ReviewCart {
 
 private:
 	int reviewChoice;
-	//ShoppingCart cart;
+	
 	Payment payment;
 	Shipping shipping;
 	Discount discount;

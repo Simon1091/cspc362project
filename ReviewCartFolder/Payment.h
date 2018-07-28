@@ -1,13 +1,12 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "CreditCard.h"
-#include "ShoppingCart.h"
+
 class Payment {
 private:
 	std::string name;
-	ShoppingCart cart;
-	//CreditCard card;
+	
+	
 	std::string cardNum;
 	std::string expdate;
 	int cwid;
@@ -33,7 +32,8 @@ public:
 	}
 	void addInfo() {
 		std::cout << "Please add name\n";
-		std::cin >> name;
+		std::cin.ignore();
+		std::getline(std::cin, name);
 		std::cout << "Please add card number\n";
 		std::cin >> cardNum;
 		std::cout << "Please input cwid\n";
@@ -41,7 +41,8 @@ public:
 		std::cout << "Please add expiration date\n";
 		std::cin >> expdate;
 		std::cout << "Please add billing address\n";
-		std::cin >> billingAddress;
+		std::cin.ignore();
+		std::getline(std::cin, billingAddress);
 		
 
 	}

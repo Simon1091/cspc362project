@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "ShoppingCart.h"
+
 class Discount {
 private:
 	std::string promocodes[3] = { "20%OFF", "50%OFF", "70%OFF" };

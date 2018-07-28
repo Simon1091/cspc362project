@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "ShoppingCart.h"
+
 class Shipping {
 private:
 	std::string name;
@@ -12,7 +12,8 @@ public:
 	Shipping(){}
 	void addInfo() {
 		std::cout << "Please input your mailing address\n";
-		std::cin >> mailingAddress;
+		std::cin.ignore();
+		std::getline(std::cin, mailingAddress);
 		
 		std::cout << "Select shipping method:\n1.Standard(7-12 days)\n2.Priority(1-2 days)3.Free(30 days)\n";
 		std::cin >> shippingChoice;
@@ -42,8 +43,8 @@ public:
 		std::cout << name << "\n";
 		std::cout << "Mailing Address: " << mailingAddress << "\n";
 	}
-	void setshippingcost(double cost) {
-		cost = this->cost;
+	void setshippingcost(double cost_) {
+		cost = cost_;
 	}
 	double getshippingcost() {
 		return cost;
