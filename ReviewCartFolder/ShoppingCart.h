@@ -53,6 +53,12 @@ public:
 		items.erase(items.begin() + n);
 	
 	}
+	void empty() {
+		for (int a = 0; a < items.size();a++) {
+			items.pop_back();
+		}
+		totalPrice = 0;
+	}
 	void displayItems() {
 		for (item i : items) {
 			std::cout << i.getName() << "\n";

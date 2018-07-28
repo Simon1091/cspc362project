@@ -66,6 +66,7 @@ public:
 						//payment.displayPayment();
 						//shipping.display();
 						std::cout << "An order confirmation has been sent to your email\n";
+						cart_.empty();
 						reviewChoice = 0;
 						break;
 					case 5://Cancel
