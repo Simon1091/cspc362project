@@ -25,7 +25,7 @@ public:
 				mailingAddress = userInput;
 		}
 		
-		std::cout << "Select shipping method:\n1.Standard(7-12 days)\n2.Priority(1-2 days)3.Free(30 days)\n";
+		std::cout << "Select shipping method:\n1.Standard(7-12 days)\n2.Priority(1-2 days)\n3.Free(30 days)\n";
 		std::cin >> shippingChoice;
 		switch (shippingChoice) {
 		case 1://Standard shipping: add shipping cost to total price
