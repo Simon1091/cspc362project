@@ -31,7 +31,7 @@ int main() {
 		case 4: // Review Cart: Delete item from Shopping Cart or Checkout
 
 			review.review(cart);
-			std::cout << "Price + Shipping = " << cart.getTotalPrice();
+			
 			break;
 		case 5: //Edit profile
 			break;
