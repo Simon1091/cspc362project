@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
-
+#include "ShoppingCart.h"
 class Discount {
 private:
 	std::string promocodes[3] = { "20%OFF", "50%OFF", "70%OFF" };
@@ -9,7 +9,7 @@ private:
 	double priceDeduction;
 public:
 	Discount() {}
-	void addPromoCode() {
+	void addPromoCode(ShoppingCart& cart_) {
 		std::cout << "Enter promocode\n";
 		std::cin >> promocodeInput;
 		if (promocodeInput == promocodes[0]) {
@@ -24,8 +24,10 @@ public:
 		else {
 			priceDeduction = 0;
 		}
+		cart_.setTotalPrice(cart_.getTotalPrice() - (cart_.getTotalPrice() * priceDeduction));
 	}
 	double getPriceDeduction() {
 		return priceDeduction;
 	}
+	
 };

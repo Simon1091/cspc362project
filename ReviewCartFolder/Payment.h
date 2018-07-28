@@ -45,6 +45,14 @@ public:
 		
 
 	}
+	void displayPayment() {
+		std::cout << "CardHolder Name: " << name << "\n";
+		std::cout << "Card Number: " << cardNum << "\n";
+		std::cout << "cwid: " << cwid << "\n";
+		std::cout << "expiration date: " << expdate << "\n";
+		std::cout << "Billing address: " << billingAddress << "\n";
+
+	}
 };
 
 

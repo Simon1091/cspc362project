@@ -34,7 +34,9 @@ private:
 	double totalPrice;
 	std::vector<item> items;
 public:
-	ShoppingCart(){}
+	ShoppingCart(){
+		totalPrice = 0;
+	}
 	void addItem(item item) {
 		items.push_back(item);
 		totalPrice += item.getPrice();
@@ -42,6 +44,9 @@ public:
 	double getTotalPrice() {
 		
 		return totalPrice;
+	}
+	void setTotalPrice(double updatedPrice) {
+		totalPrice = updatedPrice;
 	}
 	void deleteItem(int i) {
 		int n = i - 1;
