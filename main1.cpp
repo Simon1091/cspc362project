@@ -14,7 +14,8 @@ e.g.choosing quick sort rather than bubble sort etc.
 int main() {
 	ReviewCart review;
 	ShoppingCart cart;
-	
+	item computer("Computer", "Electronics", 1, 1234, 999.99);
+	cart.addItem(computer);
 	int mainchoice;
 	do {
 		std::cout << "Home Page\n";
@@ -30,7 +31,7 @@ int main() {
 		case 3: //Browse
 			break;
 		case 4: // Review Cart: Delete item from Shopping Cart or Checkout
-
+			
 			review.review(cart);
 			
 			break;

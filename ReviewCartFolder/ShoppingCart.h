@@ -9,8 +9,16 @@ private:
 	int quantity;
 	int serial;
 	double price;
+	double priceTimesQuantity;
 public:
-	item() {}
+	item(std::string name_,std::string category_,int quantity_,int serial_,double price_) {
+		name = name_;
+		category = category_;
+		quantity = quantity_;
+		serial = serial_;
+		price = price_;
+		priceTimesQuantity = price * quantity;
+	}
 	
 	std::string getName() {
 		return name;
@@ -25,8 +33,8 @@ public:
 		return serial;
 	}
 	double getPrice() {
-		price *= quantity;
-		return price;
+		
+		return priceTimesQuantity;
 	}
 };
 class ShoppingCart {
@@ -36,6 +44,9 @@ private:
 public:
 	ShoppingCart(){
 		totalPrice = 0;
+	}
+	int getCartSize() {
+		return (int)items.size();
 	}
 	void addItem(item item) {
 		items.push_back(item);
@@ -50,8 +61,9 @@ public:
 	}
 	void deleteItem(int i) {
 		int n = i - 1;
+		totalPrice -= items[n].getPrice();
 		items.erase(items.begin() + n);
-	
+		
 	}
 	void empty() {
 		for (int a = 0; a < items.size();a++) {
@@ -60,10 +72,12 @@ public:
 		totalPrice = 0;
 	}
 	void displayItems() {
+		int count = 1;
 		for (item i : items) {
-			std::cout << i.getName() << "\n";
-			std::cout << i.getPrice() << "\n";
-			std::cout << i.getQuantity() << "\n";
+			std::cout << count << ". ";
+			std::cout << i.getName() << " ";
+			std::cout << i.getPrice() << "";
+			std::cout << i.getQuantity() << "";
 			std::cout << i.getSerial() << "\n";
 
 		}

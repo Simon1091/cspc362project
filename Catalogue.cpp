@@ -45,7 +45,7 @@ int main() {
 	string line;
 	int x = 0;
 
-	myfile.open("Catalogue.txt");
+	myfile.open("Catalogue.txt",std::ifstream::in);
 	while (myfile >> line)
 	{
 		catalogue[x].name = line;
