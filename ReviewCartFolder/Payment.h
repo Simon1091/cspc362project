@@ -1,4 +1,12 @@
 #pragma once
+/*
+a) Payment
+b) 7 / 28 / 2018
+c) Simon Lee
+d) Add payment information and displays it
+e)  none
+f)  none
+*/
 #include <iostream>
 #include <string>
 #include "CreditCard.h"

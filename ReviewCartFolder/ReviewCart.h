@@ -1,4 +1,12 @@
 #pragma once
+/*
+a) Review Cart
+b) 7 / 28 / 2018
+c) Simon Lee
+d) Deletes a single item or checkouts from cart
+e)  none
+f)  none
+*/
 #include <iostream>
 #include <string>
 #include "Payment.h"

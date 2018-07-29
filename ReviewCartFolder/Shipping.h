@@ -1,4 +1,12 @@
 #pragma once
+/*
+a) Shipping
+b) 7 / 28 / 2018
+c) Simon Lee
+d) Add Shipping Information and display it
+e)  none
+f)  none
+*/
 #include <iostream>
 #include <string>
 #include "ShoppingCart.h"

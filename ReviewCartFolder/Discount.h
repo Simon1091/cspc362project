@@ -1,4 +1,12 @@
 #pragma once
+/*
+a)DIscount 
+b) 7 / 28 / 2018
+c) Simon Lee
+d) Add discount and apply it to total price
+e)  none
+f)  none
+*/
 #include <iostream>
 #include <string>
 #include "ShoppingCart.h"
