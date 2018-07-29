@@ -9,7 +9,7 @@ f)  none
 */
 #include <iostream>
 #include <string>
-#include "ShoppingCart.h"
+
 class Shipping {
 private:
 	std::string name;
@@ -17,12 +17,23 @@ private:
 	std::string mailingAddress;
 	int shippingChoice;
 public:
-	Shipping(){}
+	Shipping(){
+		mailingAddress = "";
+	}
 	void addInfo() {
+		std::string userInput;
 		std::cout << "Please input your mailing address\n";
-		std::cin >> mailingAddress;
+		while (mailingAddress == "") {
+			std::cin.ignore();
+			std::getline(std::cin, userInput);
+			if (userInput == "") {
+				std::cout << "Retry adding name\n";
+			}
+			else
+				mailingAddress = userInput;
+		}
 		
-		std::cout << "Select shipping method:\n1.Standard(7-12 days)\n2.Priority(1-2 days)3.Free(30 days)\n";
+		std::cout << "Select shipping method:\n1.Standard(7-12 days)\n2.Priority(1-2 days)\n3.Free(30 days)\n";
 		std::cin >> shippingChoice;
 		switch (shippingChoice) {
 		case 1://Standard shipping: add shipping cost to total price
@@ -50,8 +61,8 @@ public:
 		std::cout << name << "\n";
 		std::cout << "Mailing Address: " << mailingAddress << "\n";
 	}
-	void setshippingcost(double cost) {
-		cost = this->cost;
+	void setshippingcost(double cost_) {
+		cost = cost_;
 	}
 	double getshippingcost() {
 		return cost;

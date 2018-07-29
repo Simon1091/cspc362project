@@ -9,15 +9,17 @@ f)  none
 */
 #include <iostream>
 #include <string>
-#include "ShoppingCart.h"
+
 class Discount {
 private:
 	std::string promocodes[3] = { "20%OFF", "50%OFF", "70%OFF" };
 	std::string promocodeInput;
 	double priceDeduction;
 public:
-	Discount() {}
+	Discount() { promocodeInput = "";
+	}
 	void addPromoCode(ShoppingCart& cart_) {
+		std::string userInput;
 		std::cout << "Enter promocode\n";
 		std::cin >> promocodeInput;
 		if (promocodeInput == promocodes[0]) {
