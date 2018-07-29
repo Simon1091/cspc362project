@@ -15,7 +15,7 @@ public:
 	std::string getName() {
 		return name;
 	}
-	std::string getcategory() {
+	std::string getCategory() {
 		return category;
 	}
 	int getQuantity() {
@@ -27,6 +27,26 @@ public:
 	double getPrice() {
 		price *= quantity;
 		return price;
+	}
+	void setName(std::string name_)
+	{
+		name = name_;
+	}
+	void setCatagory(std::string catagory_)
+	{
+		category = catagory_;
+	}
+	void setQuantity(int quantity_)
+	{
+		quantity = quantity_;
+	}
+	void setSerial(int serial_)
+	{
+		serial = serial_;
+	}
+	void setPrice(double price_)
+	{
+		price = price_;
 	}
 };
 class ShoppingCart {
