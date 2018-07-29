@@ -11,13 +11,8 @@ private:
 	double price;
 	double priceTimesQuantity;
 public:
-	item(std::string name_,std::string category_,int quantity_,int serial_,double price_) {
-		name = name_;
-		category = category_;
-		quantity = quantity_;
-		serial = serial_;
-		price = price_;
-		priceTimesQuantity = price * quantity;
+	item() {
+		
 	}
 	
 	std::string getName() {
@@ -34,7 +29,7 @@ public:
 	}
 	double getPrice() {
 		
-		return priceTimesQuantity;
+		return price;
 	}
 	void setName(std::string name_)
 	{
@@ -95,10 +90,10 @@ public:
 		int count = 1;
 		for (item i : items) {
 			std::cout << count << ". ";
-			std::cout << i.getName() << " ";
-			std::cout << i.getPrice() << "";
-			std::cout << i.getQuantity() << "";
-			std::cout << i.getSerial() << "\n";
+			std::cout << "Name: " << i.getName() << " ";
+			std::cout << "Price: " << i.getPrice() << "";
+			std::cout << "Quantity: " << i.getQuantity() << "";
+			std::cout << "Serial: " << i.getSerial() << "\n";
 
 		}
 	}
