@@ -91,8 +91,8 @@ public:
 		for (item i : items) {
 			std::cout << count << ". ";
 			std::cout << "Name: " << i.getName() << " ";
-			std::cout << "Price: " << i.getPrice() << "";
-			std::cout << "Quantity: " << i.getQuantity() << "";
+			std::cout << "Price: " << i.getPrice() << " ";
+			std::cout << "Quantity: " << i.getQuantity() << " ";
 			std::cout << "Serial: " << i.getSerial() << "\n";
 
 		}

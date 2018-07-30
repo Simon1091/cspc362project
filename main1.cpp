@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include "ReviewCartFolder\ReviewCart.h"
-
+#include <iomanip>
+#include <limits>
 /*
 a) Module name or Class name in the Design
 b) Date of the code
@@ -14,12 +15,25 @@ e.g.choosing quick sort rather than bubble sort etc.
 int main() {
 	ReviewCart review;
 	ShoppingCart cart;
-	
+	item computer;
+	computer.setName("Computer");
+	computer.setCatagory("Electronic");
+	computer.setQuantity(1);
+	computer.setPrice(999.99);
+	computer.setSerial(123);
+	cart.addItem(computer);
 	int mainchoice;
 	do {
-		std::cout << "Home Page\n";
-		std::cout << "Please select:\n0. Exit program\n1.Login\n2.Register\n3.Browse\n4.ReviewCart\n5.Edit Profile\n6.Edit Catalog\n";
-
+		std::cout << "\n----------------Home Page-----------------\n";
+		std::cout << "Please select:\n";
+		std::cout << "0. Exit program\n";
+		std::cout << "1.Login\n";
+		std::cout << "2.Register\n";
+		std::cout  << "3.Browse\n";
+		std::cout  << "4.ReviewCart\n";
+		std::cout << "5.Edit Profile\n";
+		std::cout << "6.Edit Catalog\n";
+		std::cout << "\n------------------------------------------\n";
 		std::cin >> mainchoice;
 		switch (mainchoice) {
 

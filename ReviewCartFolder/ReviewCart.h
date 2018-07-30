@@ -11,6 +11,8 @@ f)  none
 #include <string>
 #include "Payment.h"
 #include "ShoppingCart.h"
+#include <iomanip>
+#include <limits>
 
 #include "Shipping.h"
 #include "Discount.h"
@@ -58,23 +60,29 @@ public:
 		}
 		else {
 			do {
-
-				std::cout << "Select:\n1.Delete item from cart\n2.Checkout cart\n";
+				std::cout << "\n----------------Review Cart-----------------\n";
+				std::cout << "Total Price : $"  << cart_.getTotalPrice() << "\n";
+				std::cout << "Select:\n1.Delete item from cart\n2.Checkout cart";
+				std::cout << "\n---------------------------------------------\n Enter: ";
 				std::cin >> reviewChoice;
 				switch (reviewChoice) {
 				case 1:
-						
+						std::cout << "\n----------------Deletion-----------------\n";
 						cart_.displayItems();
-						std::cout << "Which item do you want to delete from cart\n";
+						std::cout << "\n-----------------------------------------\n";
+						std::cout << "Which item do you want to delete from cart\nEnter: ";
 						std::cin >> deleteChoice;
 						cart_.deleteItem(deleteChoice);
 						std::cout << "Cart updated\n";
 						cart_.displayItems();
 						reviewChoice = 0;
+						
 					break;
 				case 2:
 						do {
-							std::cout << "Please fill out order\n1.Payment\n2.Shipping\n3.Discount\n4.Confirm\n5.Cancel\n";
+							std::cout << "\n----------------Checkout-----------------\n";
+							std::cout << "Choose from 1-5:\n1.Payment\n2.Shipping\n3.Discount\n4.Confirm\n5.Cancel";
+							std::cout << "\n-----------------------------------------\n Enter: ";
 							std::cin >> orderChoice;
 							switch (orderChoice) {
 							case 1://Payment
@@ -109,7 +117,7 @@ public:
 
 									reviewChoice = 0;
 								}
-
+								std::cout << "\n------------------------------------------\n";
 								break;
 							case 5://Cancel
 								reviewChoice = 0;
@@ -120,6 +128,7 @@ public:
 					
 				}
 			} while (reviewChoice != 0);
+			
 		}
 	}
 	
