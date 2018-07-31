@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <fstream>
 #include "ReviewCartFolder/ShoppingCart.h"
-#include "Catalogue.h"
+#include "Browse.h"
+#include <fstream>
 using namespace std;
 
 //a) Modify Catalog
@@ -19,16 +19,17 @@ void addItem(item cat_item)
 {
 	//Add item to catalog array and to end of doc
 	ofstream cat_file;
-	cat_file.open("Catalogue.txt", ios::app);
+	cat_file.open("Catalog.txt", ios::app);
 	cat_file << cat_item.getName() << '\t' << cat_item.getCategory() << '\t' <<
 		cat_item.getQuantity() << '\t' << cat_item.getSerial() << '\t' << cat_item.getPrice() << '\n';
 	cat_file.close();
-	catalogue[numCatalogItems].setName(cat_item.getName());
+	/*catalogue[numCatalogItems].setName(cat_item.getName());
 	catalogue[numCatalogItems].setCatagory(cat_item.getCategory());
 	catalogue[numCatalogItems].setQuantity(cat_item.getQuantity());
 	catalogue[numCatalogItems].setSerial(cat_item.getSerial());
 	catalogue[numCatalogItems].setPrice(cat_item.getPrice());
-	numCatalogItems++;
+	numCatalogItems++;*/
+	catalog.push_back(cat_item);
 }
 
 void deleteItem(string name)
@@ -36,8 +37,9 @@ void deleteItem(string name)
 	//Search through catalog array and delete item from catalog
 	//Search through doc and delete item from doc
 	size_t pos;
+	item temp;
 	fstream cat_file;
-	cat_file.open("Catalogue.txt");
+	cat_file.open("Catalog.txt");
 	string line, file;
 	while (getline(cat_file, line))
 	{
@@ -48,9 +50,20 @@ void deleteItem(string name)
 	cat_file << file;
 
 	cat_file.seekg(0, ios::beg);
-	while (cat_file >> line)
+	catalog.erase(catalog.begin, catalog.end);
+	while (cat_file.good())
 	{
-		catalogue[numCatalogItems].setName(line);
+		temp.setName(line);
+		getline(cat_file, line);
+		temp.setCatagory(line);
+		getline(cat_file, line);
+		temp.setQuantity(stoi(line));
+		getline(cat_file, line);
+		temp.setSerial(stoi(line));
+		getline(cat_file, line);
+		temp.setPrice(stod(line));
+		catalog.push_back(temp);
+		/*catalogue[numCatalogItems].setName(line);
 		cat_file >> line;
 		catalogue[numCatalogItems].setCatagory(line);
 		cat_file >> line;
@@ -59,7 +72,7 @@ void deleteItem(string name)
 		catalogue[numCatalogItems].setSerial(stoi(line));
 		cat_file >> line;
 		catalogue[numCatalogItems].setPrice(stoi(line));
-		numCatalogItems++;
+		numCatalogItems++;*/
 	}
 	cat_file.close();
 }
