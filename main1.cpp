@@ -34,11 +34,10 @@ int main() {
 		std::cout << "Please select:\n";
 		std::cout << "0. Exit program\n";
 		std::cout << "1.Login\n";
-		std::cout << "2.Register\n";
-		std::cout  << "3.Browse\n";
-		std::cout  << "4.ReviewCart\n";
-		std::cout << "5.Edit Profile\n";
-		std::cout << "6.Edit Catalog\n";
+		std::cout << "2.Browse\n";
+		std::cout  << "3.ReviewCart\n";
+		std::cout  << "4.Edit Profile\n";
+		std::cout << "5.Edit Catalog\n";
 		std::cout << "\n------------------------------------------\n";
 		std::cin >> mainchoice;
 		switch (mainchoice) {
@@ -46,20 +45,18 @@ int main() {
 		case 1: //Login
 			accountNumber = logInMenu();//takes you to log in menu, performs complete log in from there.
 			break;
-		case 2: //Register *NOTE - from Derek* -> this can probably be deleted since the log in function handles registering!
-			break;
-		case 3: //Browse
+		case 2: //Browse catalog: View catalog(read Catalog.txt and input into vector<item> catalogue) and add items to shopping cart
 			browseCatalog(cart);
 			break;
-		case 4: // Review Cart: Delete item from Shopping Cart or Checkout
-			
+		case 3: // Review Cart: Delete item from Shopping Cart or Checkout
 			review.review(cart);
+			break;
+		case 4: //Edit profile
 			
 			break;
-		case 5: //Edit profile
+		case 5: //Edit Catalog
 			break;
-		case 6: //Edit Catalog
-			break;
+		
 		default:
 			break;
 		}

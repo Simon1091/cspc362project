@@ -18,7 +18,7 @@ void browseCatalog(ShoppingCart& cart_) {
 		std::cin >> browseChoice;
 		switch (browseChoice) {
 		case 1:
-			file.open("Catalog.txt",ios::in);
+			file.open("Catalog.txt",ios::in); 
 			if (!file.is_open()) {
 				cout << "Unable to open file\n";
 			}
