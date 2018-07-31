@@ -1,5 +1,14 @@
 #pragma once
 #pragma once
+/*
+a) Browse
+b) 7/30/2018
+c) Simon Lee
+d) Add Items 
+e)  Any important data structure in class / functions
+f)  choice of a specific algorithm within service / function
+e.g.choosing quick sort rather than bubble sort etc.
+*/
 #include <iostream>
 #include <string>
 #include "ReviewCartFolder\ShoppingCart.h"
@@ -76,8 +85,8 @@ ofstream outputFile;
 				cart_.addItem(chosenItem);
 				int updatedQuantity = catalog[itemChoice - 1].getQuantity() - quantityChoice;
 				if (updatedQuantity == 0) {
-					
-					catalog.erase(catalog.begin() + (itemChoice- 1));
+					int index = itemChoice - 1;
+					catalog.erase(catalog.begin() + index);
 					for (item i : catalog) {
 						
 							outputFile << i.getName() << "\n";

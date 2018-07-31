@@ -77,7 +77,8 @@ public:
 	}
 	void deleteItem(int i) {
 		int n = i - 1;
-		totalPrice -= items[n].getPrice();
+		double combinedprice = items[n].getPrice() * items[n].getQuantity();
+		totalPrice -= combinedprice;
 		items.erase(items.begin() + n);
 		
 	}
