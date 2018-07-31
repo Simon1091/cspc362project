@@ -65,7 +65,8 @@ public:
 	}
 	void addItem(item item) {
 		items.push_back(item);
-		totalPrice += item.getPrice();
+		double combinedprice = item.getPrice() * item.getQuantity();
+		totalPrice += combinedprice;
 	}
 	double getTotalPrice() {
 		

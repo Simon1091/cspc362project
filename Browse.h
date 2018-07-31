@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include "ReviewCartFolder\ShoppingCart.h"
-
 #include <fstream>
 void browseCatalog(ShoppingCart& cart_) {
 	item temp;
@@ -11,7 +10,9 @@ void browseCatalog(ShoppingCart& cart_) {
 	int itemChoice;
 	int quantityChoice;
 	int browseChoice;
-	ifstream file;
+ifstream file;
+ofstream outputFile;
+	
 	string line;
 	do {
 		std::cout << "Select from 1-3:\n1. View Catalog\n2.Add Item\n3.Go back to Home Page\n";
@@ -54,7 +55,7 @@ void browseCatalog(ShoppingCart& cart_) {
 					cout << endl;
 				}
 			}
-			
+			file.close();
 			break;
 		case 2:
 			std::cout << "Enter the item number to add item to cart\n";
@@ -69,15 +70,39 @@ void browseCatalog(ShoppingCart& cart_) {
 				std::cout << "please input an number higher than zero";
 			}
 			else {
+				outputFile.open("Catalog.txt", ios::trunc);
 				item chosenItem = catalog[itemChoice - 1];
 				chosenItem.setQuantity(quantityChoice);
 				cart_.addItem(chosenItem);
-				int updatedQuantity = catalog[itemChoice].getQuantity() - quantityChoice;
+				int updatedQuantity = catalog[itemChoice - 1].getQuantity() - quantityChoice;
 				if (updatedQuantity == 0) {
-					//mc.deleteItem(catalogue[itemChoice].getName());
+					
+					catalog.erase(catalog.begin() + (itemChoice- 1));
+					for (item i : catalog) {
+						
+							outputFile << i.getName() << "\n";
+							outputFile << i.getCategory() << "\n";
+							outputFile << to_string(i.getQuantity()) << "\n";
+							outputFile << to_string(i.getSerial()) << "\n";
+							outputFile << to_string(i.getPrice()) << "\n";
+							outputFile << "\n";
+						
+					}
+					
 				}
 				else {
-					catalog[itemChoice].setQuantity(updatedQuantity);
+					catalog[itemChoice - 1].setQuantity(updatedQuantity);
+				
+
+					for (item i : catalog) {
+						outputFile << i.getName() << "\n";
+						outputFile << i.getCategory() << "\n";
+						outputFile << to_string(i.getQuantity()) << "\n";
+						outputFile << to_string(i.getSerial()) << "\n";
+						outputFile << to_string(i.getPrice()) << "\n";
+						outputFile << "\n";
+					}
+					
 				}
 			}
 			break;
