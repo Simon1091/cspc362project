@@ -16,7 +16,7 @@ bool loggedIn = false;
 UserAccount accountArray[NUM];//global account class, so it doesnt get re defined with each call-to from the homepage (just in case)
 
 
-int logInMenu(UserAccount accountArray[]) {
+int logInMenu() {//might need to pass in class...
 	int menu_choice;
 	int accountNumber;//this number gets passed to the body of the program since it identify's the logged in user
 
