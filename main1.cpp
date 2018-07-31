@@ -3,6 +3,9 @@
 #include "ReviewCartFolder\ReviewCart.h"
 #include <iomanip>
 #include <limits>
+#include "Accounts.h"//for log ins
+#include "LogIn.h"// to log in, returns the position of the logged in user in the accounts array
+#include "Browse.h"
 /*
 a) Module name or Class name in the Design
 b) Date of the code
@@ -13,6 +16,9 @@ f)  choice of a specific algorithm within service / function
 e.g.choosing quick sort rather than bubble sort etc.
 */
 int main() {
+	//for log in by Derek
+	int accountNumber;// gets its value from LogInMenu; this refers to the position of the logged in user in the account array!
+
 	ReviewCart review;
 	ShoppingCart cart;
 	item computer;
@@ -38,10 +44,12 @@ int main() {
 		switch (mainchoice) {
 
 		case 1: //Login
+			accountNumber = logInMenu();//takes you to log in menu, performs complete log in from there.
 			break;
-		case 2: //Register
+		case 2: //Register *NOTE - from Derek* -> this can probably be deleted since the log in function handles registering!
 			break;
 		case 3: //Browse
+			browseCatalog(cart);
 			break;
 		case 4: // Review Cart: Delete item from Shopping Cart or Checkout
 			
