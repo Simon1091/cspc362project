@@ -73,4 +73,7 @@ public:
 	std::string getmailingAddress() {
 		return mailingAddress;
 	}
+	void reset() {
+		mailingAddress = "";
+	}
 };

@@ -39,5 +39,7 @@ public:
 	double getPriceDeduction() {
 		return priceDeduction;
 	}
-	
+	void reset() {
+		promocodeInput = "";
+	}
 };
