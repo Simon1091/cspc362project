@@ -31,23 +31,11 @@ private:
 	int orderChoice;	//for payment, shipping, discount or confirm 
 public:
 	ReviewCart() {
-		isCartEmpty = false;
-		isIncomplete = false;
+		isCartEmpty = true;
+		isIncomplete = true;
 		paymentDone = false;
 		shippingDone = false;
 	}
-
-	std::string getPaymentCardNumber() {
-		return payment.getcardNum();
-	}
-	std::string getPaymentCwid() {
-		return payment.getcwid();
-
-	}
-	std::string getPaymentAddress() {
-		return payment.getBillingAddress();
-	}
-	
 	void review(ShoppingCart& cart_) {
 		if (cart_.getCartSize() == 0) {
 			isCartEmpty = true;
@@ -61,8 +49,9 @@ public:
 		else {
 			do {
 				std::cout << "\n----------------Review Cart-----------------\n";
+				cart_.displayItems();
 				std::cout << "Total Price : $"  << cart_.getTotalPrice() << "\n";
-				std::cout << "Select:\n1.Delete item from cart\n2.Checkout cart";
+				std::cout << "Select:\n0.Go Back to Home Page\n1.Delete item from cart\n2.Checkout cart";
 				std::cout << "\n---------------------------------------------\n Enter: ";
 				std::cin >> reviewChoice;
 				switch (reviewChoice) {
@@ -100,12 +89,13 @@ public:
 								break;
 							case 4://Confirm
 								if (paymentDone == false) {
-									std::cout << "Please finish payment\n";
+									std::cout << "\n ERROR: Please finish payment\n";
 									isIncomplete = true;
 								}
 								if (shippingDone == false) {
-									std::cout << "Please finish shipping\n";
+									std::cout << "\n ERROR: Please finish shipping\n";
 									isIncomplete = true;
+							
 								}
 								else {
 									isIncomplete = false;
@@ -114,13 +104,23 @@ public:
 									shipping.display();
 									std::cout << "An order confirmation has been sent to your email\n";
 									cart_.empty();
-
+									payment.resetPayment();
+									paymentDone = false;
+									shippingDone = false;
+									shipping.reset();
+									discount.reset();
 									reviewChoice = 0;
 								}
 								std::cout << "\n------------------------------------------\n";
 								break;
 							case 5://Cancel
+								paymentDone = false;
+								shippingDone = false;
+								isIncomplete = false;
 								reviewChoice = 0;
+								payment.resetPayment();
+								shipping.reset();
+								discount.reset();
 								break;
 							}
 

@@ -2,11 +2,11 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <vector>
 #include "ReviewCartFolder/ShoppingCart.h"
 using namespace std;
-item catalogue[50];
 int numCatalogItems = 0;
-
+item catalogue[50];
 void DisplayCatalogue(item catalogue[], int size)
 {
 	cout << "Name" << setw(15) << "Category" << setw(15) << "Quantity" << setw(15) << "Serial Number" << setw(15) << "Price" << endl;

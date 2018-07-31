@@ -5,7 +5,11 @@
 #include <limits>
 #include "Accounts.h"//for log ins
 #include "LogIn.h"// to log in, returns the position of the logged in user in the accounts array
+<<<<<<< HEAD
 #include "ModifyCatalog.h"
+=======
+#include "Browse.h"
+>>>>>>> origin/master
 /*
 a) Module name or Class name in the Design
 b) Date of the code
@@ -35,11 +39,10 @@ int main() {
 		std::cout << "Please select:\n";
 		std::cout << "0. Exit program\n";
 		std::cout << "1.Login\n";
-		std::cout << "2.Register\n";
-		std::cout  << "3.Browse\n";
-		std::cout  << "4.ReviewCart\n";
-		std::cout << "5.Edit Profile\n";
-		std::cout << "6.Edit Catalog\n";
+		std::cout << "2.Browse\n";
+		std::cout  << "3.ReviewCart\n";
+		std::cout  << "4.Edit Profile\n";
+		std::cout << "5.Edit Catalog\n";
 		std::cout << "\n------------------------------------------\n";
 		std::cin >> mainchoice;
 		switch (mainchoice) {
@@ -47,17 +50,16 @@ int main() {
 		case 1: //Login
 			accountNumber = logInMenu();//takes you to log in menu, performs complete log in from there.
 			break;
-		case 2: //Register *NOTE - from Derek* -> this can probably be deleted since the log in function handles registering!
+		case 2: //Browse catalog: View catalog(read Catalog.txt and input into vector<item> catalogue) and add items to shopping cart
+			browseCatalog(cart);
 			break;
-		case 3: //Browse
-			break;
-		case 4: // Review Cart: Delete item from Shopping Cart or Checkout
-			
+		case 3: // Review Cart: Delete item from Shopping Cart or Checkout
 			review.review(cart);
+			break;
+		case 4: //Edit profile
 			
 			break;
-		case 5: //Edit profile
-			break;
+<<<<<<< HEAD
 		case 6: //Edit Catalog
 			bool adminBool = accountArray[accountNumber].getAdmin();
 			if (adminBool == true) {
@@ -67,7 +69,11 @@ int main() {
 			else {
 				cout << "\nYou are NOT logged in as Admin.\n";
 			}
+=======
+		case 5: //Edit Catalog
+>>>>>>> origin/master
 			break;
+		
 		default:
 			break;
 		}

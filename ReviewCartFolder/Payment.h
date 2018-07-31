@@ -17,7 +17,7 @@ private:
 	
 	std::string cardNum;
 	std::string expdate;
-	std::string cwid;
+	std::string pinNum;
 	std::string billingAddress;
 	
 public:
@@ -26,7 +26,7 @@ public:
 		cardNum = "";
 		expdate = "";
 		billingAddress = "";
-		cwid = "";
+		pinNum = "";
 	}
 	std::string getcardNum() {
 		return cardNum;
@@ -35,8 +35,8 @@ public:
 		return billingAddress;
 
 	}
-	std::string getcwid() {
-		return cwid;
+	std::string getPin() {
+		return pinNum;
 	}
 	std::string getPaymentname() {
 		return name;
@@ -44,6 +44,30 @@ public:
 	std::string getExpDate() {
 		return expdate;
 	}
+	void setName(std::string name_) {
+		name = name_;
+	}
+	void setbillingAddress(std::string billingAddress_) {
+		billingAddress = billingAddress_;
+	}
+	void setCardNum(std::string cardNum_) {
+		cardNum = cardNum_;
+	}
+	void setExpDate(std::string expDate_) {
+		expdate = expDate_;
+	}
+	void setCwid(std::string pinNum_) {
+		pinNum = pinNum_;
+	}
+
+	void resetPayment() {
+		billingAddress = "";
+		name = "";
+		pinNum = "";
+		cardNum = "";
+		expdate = "";
+	}
+
 	void addInfo() {
 		std::string userInput;
 		std::cout << "Please add name\n";
@@ -68,15 +92,15 @@ public:
 				cardNum = userInput;
 		}
 		
-		std::cout << "Please input cwid\n";
-		while (cwid == "") {
+		std::cout << "Please input pinNum\n";
+		while (pinNum == "") {
 			std::cin.ignore();
 			std::getline(std::cin, userInput);
 			if (userInput == "") {
-				std::cout << "Retry adding CWID\n";
+				std::cout << "Retry adding pinNum\n";
 			}
 			else
-				cwid = userInput;
+				pinNum = userInput;
 		}
 		
 		std::cout << "Please add expiration date\n";
@@ -107,7 +131,7 @@ public:
 	void displayPayment() {
 		std::cout << "CardHolder Name: " << name << "\n";
 		std::cout << "Card Number: " << cardNum << "\n";
-		std::cout << "cwid: " << cwid << "\n";
+		std::cout << "pinNum: " << pinNum << "\n";
 		std::cout << "expiration date: " << expdate << "\n";
 		std::cout << "Billing address: " << billingAddress << "\n";
 
