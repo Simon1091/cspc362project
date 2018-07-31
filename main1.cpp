@@ -3,6 +3,8 @@
 #include "ReviewCartFolder\ReviewCart.h"
 #include <iomanip>
 #include <limits>
+#include "accounts.h"//for log ins
+#include "LogIn.h"// to log in, returns the position of the logged in user in the accounts array
 /*
 a) Module name or Class name in the Design
 b) Date of the code

@@ -1,9 +1,12 @@
 /*this is the main file which will create an array of the account class
 and allow the user to input their info
-... essentially a log in page.*/
+... essentially a log in page.
+By: Derek Dorr*/
+//UPDATE: this is old, do not include, the fixed version is "Login.h"
+
 #include <iostream>
 #include <string>
-#include "CPSC362_Accounts.h"
+#include "Accounts.h"
 using namespace std;
 
 int logIntoExisting(UserAccount[]);
