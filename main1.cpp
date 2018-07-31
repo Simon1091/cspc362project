@@ -5,6 +5,7 @@
 #include <limits>
 #include "Accounts.h"//for log ins
 #include "LogIn.h"// to log in, returns the position of the logged in user in the accounts array
+#include "ModifyCatalog.h"
 /*
 a) Module name or Class name in the Design
 b) Date of the code
@@ -18,9 +19,10 @@ int main() {
 	//for log in by Derek
 	int accountNumber;// gets its value from LogInMenu; this refers to the position of the logged in user in the account array!
 
+
 	ReviewCart review;
 	ShoppingCart cart;
-	item computer;
+	Item computer;
 	computer.setName("Computer");
 	computer.setCatagory("Electronic");
 	computer.setQuantity(1);
@@ -57,6 +59,14 @@ int main() {
 		case 5: //Edit profile
 			break;
 		case 6: //Edit Catalog
+			bool adminBool = accountArray[accountNumber].getAdmin();
+			if (adminBool == true) {
+				//make sure the header file with the modify catalogue menu is included and
+				//just call it here.
+			}
+			else {
+				cout << "\nYou are NOT logged in as Admin.\n";
+			}
 			break;
 		default:
 			break;

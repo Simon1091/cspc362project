@@ -14,15 +14,14 @@ void printDataBase(UserAccount[]);
 //Global Vars
 bool loggedIn = false;
 UserAccount accountArray[NUM];//global account class, so it doesnt get re defined with each call-to from the homepage (just in case)
-
+string adminUN = "admin";
+string adminPW = "admin";
 
 int logInMenu() {//might need to pass in class...
 	int menu_choice;
 	int accountNumber;//this number gets passed to the body of the program since it identify's the logged in user
 
 	 //initialize admin
-	string adminUN = "admin";
-	string adminPW = "admin";
 	accountArray[0].setEmail(adminUN);
 	accountArray[0].setPwd(adminPW);
 
@@ -75,16 +74,23 @@ int logIntoExisting(UserAccount accountArray[]) {
 	do {
 		if (accountArray[j].getEmail() == user_email  && accountArray[j].getPwd() == user_pwd) {
 			login_matches = true;
-			cout << "\nLogging In!\n";
+			if (user_email == adminUN && user_pwd == adminPW) {
+				accountArray[j].setAdmin();
+				cout << "\n\tYou Are Logging in as Admin!\n";
+				loggedIn = true;
+			}
+			else {
+				cout << "\nLogging In as User!\n";
+				loggedIn = true;
+			}
 		}
 		else {
 			j++;
 		}
-	} while (login_matches != true || j > NUM);
+	} while (login_matches != true && j < NUM);
 	if (login_matches == false) {
 		cout << "Your email and password did not match any existing accounts.\n";
 	}
-	loggedIn = true;
 	return j;//returning the account's position in the array.
 }
 
