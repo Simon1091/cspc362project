@@ -29,6 +29,7 @@ void DisplayCatalogue(item catalogue[], int size)
 
 item AddItemToCatalogue()
 {
+	fstream myfile;
 	item catalogue;
 	cout << endl << "Enter the new item's Name followed by it's Category followed by it's Quantity followed by it's Serial Number followed by it's Price" << endl;
 	cin >> catalogue.name;
@@ -45,7 +46,7 @@ int main() {
 	string line;
 	int x = 0;
 
-	myfile.open("Catalogue.txt",std::ifstream::in);
+	myfile.open("Catalogue.txt");
 	while (myfile >> line)
 	{
 		catalogue[x].name = line;
@@ -64,6 +65,13 @@ int main() {
 
 	DisplayCatalogue(catalogue, size);
 	catalogue[x + 1] = AddItemToCatalogue();
-	cout << catalogue[x + 1].name;
+	size++;
+	myfile.open("Catalogue.txt", ios::out | ios::app);
+	myfile << catalogue[x+1].name << "/t";
+	myfile << catalogue[x+1].category << "/t";
+	myfile << catalogue[x+1].quantity << "/t";
+	myfile << catalogue[x+1].serial << "/t";
+	myfile << catalogue[x+1].price << "/t" << "/n";
+	myfile.close();
 	return 0;
 }
