@@ -8,9 +8,8 @@ Idea: When registering a new user, they are added to an user class*/
 #include <string>
 using namespace std;
 
-const int NUM = 5;
+const int NUM = 5; //number of users for demo
 
-//Class needs: Name, log in, email, card info, shipping info
 class UserAccount
 {
 private:
@@ -19,8 +18,11 @@ private:
 	string password;
 	string street_address;
 	int credit_card_number = 0;
+	bool isAdmin = false;
 
 	//admin info
+	//un = admin
+	//pw = admin
 
 public:
 	void setName(string);
@@ -33,6 +35,8 @@ public:
 	string getStrtAdrs();
 	void setCardNum(int);
 	int getCardNum();
+	void setAdmin();
+	bool getAdmin();
 
 	void printInfo() {
 		cout << "\nName: " << getName() << "\n" << "Email: " << getEmail() << "\n"
@@ -79,4 +83,12 @@ string UserAccount::getStrtAdrs() {
 
 int UserAccount::getCardNum() {
 	return credit_card_number;
+}
+
+void UserAccount::setAdmin() {
+	isAdmin = true;
+}
+
+bool UserAccount::getAdmin() {
+	return isAdmin;
 }
