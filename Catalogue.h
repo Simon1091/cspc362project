@@ -6,8 +6,8 @@
 #include "ReviewCartFolder/ShoppingCart.h"
 using namespace std;
 int numCatalogItems = 0;
-std::vector<item> catalogue;
-void DisplayCatalogue(std::vector<item> catalogue, int size)
+item catalogue[50];
+void DisplayCatalogue(item catalogue[], int size)
 {
 	cout << "Name" << setw(15) << "Category" << setw(15) << "Quantity" << setw(15) << "Serial Number" << setw(15) << "Price" << endl;
 	for (int i = 0; size > i; i++)

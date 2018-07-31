@@ -3,11 +3,11 @@
 #include <iostream>
 #include <string>
 #include "ReviewCartFolder\ShoppingCart.h"
-#include "ModifyCatalog.h"
+
 #include <fstream>
 void browseCatalog(ShoppingCart& cart_) {
 	item temp;
-	//ModifyCatalog mc;
+	std::vector<item> catalog;
 	int itemChoice;
 	int quantityChoice;
 	int browseChoice;
@@ -42,11 +42,11 @@ void browseCatalog(ShoppingCart& cart_) {
 						temp.setSerial(stoi(line));
 						getline(file, line);
 						temp.setPrice(stod(line));
-						catalogue.push_back(temp);
+						catalog.push_back(temp);
 						
 					}
 				}
-				for (item i : catalogue) {
+				for (item i : catalog) {
 					cout <<  i.getSerial() << ". " << "name: " << i.getName() << endl;
 					cout << "category: " << i.getCategory() << endl;
 					cout << "quantity: " << i.getQuantity() << endl;
@@ -62,22 +62,22 @@ void browseCatalog(ShoppingCart& cart_) {
 
 			std::cout << "Select quantity?";
 			std::cin >> quantityChoice;
-			if (quantityChoice > catalogue[itemChoice - 1].getQuantity()) {
+			if (quantityChoice > catalog[itemChoice - 1].getQuantity()) {
 				std::cout << "too much\n";
 			}
 			else if (quantityChoice == 0) {
 				std::cout << "please input an number higher than zero";
 			}
 			else {
-				item chosenItem = catalogue[itemChoice - 1];
+				item chosenItem = catalog[itemChoice - 1];
 				chosenItem.setQuantity(quantityChoice);
 				cart_.addItem(chosenItem);
-				int updatedQuantity = catalogue[itemChoice].getQuantity() - quantityChoice;
+				int updatedQuantity = catalog[itemChoice].getQuantity() - quantityChoice;
 				if (updatedQuantity == 0) {
 					//mc.deleteItem(catalogue[itemChoice].getName());
 				}
 				else {
-					catalogue[itemChoice].setQuantity(updatedQuantity);
+					catalog[itemChoice].setQuantity(updatedQuantity);
 				}
 			}
 			break;
