@@ -51,7 +51,7 @@ public:
 				std::cout << "\n----------------Review Cart-----------------\n";
 				cart_.displayItems();
 				std::cout << "Total Price : $"  << cart_.getTotalPrice() << "\n";
-				std::cout << "Select:\n1.Delete item from cart\n2.Checkout cart";
+				std::cout << "Select:\n0.Go Back to Home Page\n1.Delete item from cart\n2.Checkout cart";
 				std::cout << "\n---------------------------------------------\n Enter: ";
 				std::cin >> reviewChoice;
 				switch (reviewChoice) {

@@ -7,7 +7,7 @@
 #include <fstream>
 void browseCatalog(ShoppingCart& cart_) {
 	item temp;
-	ModifyCatalog mc;
+	//ModifyCatalog mc;
 	int itemChoice;
 	int quantityChoice;
 	int browseChoice;
