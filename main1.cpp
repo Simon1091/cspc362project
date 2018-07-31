@@ -5,6 +5,7 @@
 #include <limits>
 #include "Accounts.h"//for log ins
 #include "LogIn.h"// to log in, returns the position of the logged in user in the accounts array
+#include "Browse.h"
 /*
 a) Module name or Class name in the Design
 b) Date of the code
@@ -48,6 +49,7 @@ int main() {
 		case 2: //Register *NOTE - from Derek* -> this can probably be deleted since the log in function handles registering!
 			break;
 		case 3: //Browse
+			browseCatalog(cart);
 			break;
 		case 4: // Review Cart: Delete item from Shopping Cart or Checkout
 			
