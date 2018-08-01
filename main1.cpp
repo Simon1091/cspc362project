@@ -22,7 +22,7 @@ e.g.choosing quick sort rather than bubble sort etc.
 	
 int main() {
 	//for log in by Derek
-	int accountNumber;// gets its value from LogInMenu; this refers to the position of the logged in user in the account array!
+	int accountNumber = 0;// gets its value from LogInMenu; this refers to the position of the logged in user in the account array!
 
 	ReviewCart review;
 	ShoppingCart cart;
@@ -61,9 +61,17 @@ int main() {
 			break;
 
 		case 5: //Edit Catalog
-
-			break;
-		
+			//bool adminBool = accountArray[accountNumber].getAdmin();
+			if (accountArray[accountNumber].getAdmin()) {
+				//make sure the header file with the modify catalogue menu is included and
+				//just call it here.
+				modifyCatalog();
+				break;
+			}
+			else {
+				cout << "\nYou are NOT logged in as Admin.\n";
+				break;
+			}
 		default:
 			break;
 		}
