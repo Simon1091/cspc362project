@@ -1,21 +1,11 @@
 #pragma once
-#pragma once
-/*
-a) Browse
-b) 7/30/2018
-c) Simon Lee
-d) Add Items 
-e)  Any important data structure in class / functions
-f)  choice of a specific algorithm within service / function
-e.g.choosing quick sort rather than bubble sort etc.
-*/
-#include <iostream>
 #include <string>
 #include "ReviewCartFolder\ShoppingCart.h"
+#include <iostream>
 #include <fstream>
+std::vector<item> catalog;
 void browseCatalog(ShoppingCart& cart_) {
 	item temp;
-	std::vector<item> catalog;
 	int itemChoice;
 	int quantityChoice;
 	int browseChoice;
@@ -34,6 +24,7 @@ ofstream outputFile;
 			}
 			else {
 				cout << "reading file input" << endl;
+				catalog.erase(catalog.begin(), catalog.end());
 				while (!file.eof()) {
 					if (file.eof())
 						break;
@@ -85,8 +76,8 @@ ofstream outputFile;
 				cart_.addItem(chosenItem);
 				int updatedQuantity = catalog[itemChoice - 1].getQuantity() - quantityChoice;
 				if (updatedQuantity == 0) {
-					int index = itemChoice - 1;
-					catalog.erase(catalog.begin() + index);
+					
+					catalog.erase(catalog.begin() + (itemChoice- 1));
 					for (item i : catalog) {
 						
 							outputFile << i.getName() << "\n";
@@ -122,4 +113,3 @@ ofstream outputFile;
 
 
 }
-

@@ -20,8 +20,8 @@ void addItem(item cat_item)
 	//Add item to catalog array and to end of doc
 	ofstream cat_file;
 	cat_file.open("Catalog.txt", ios::app);
-	cat_file << cat_item.getName() << '\t' << cat_item.getCategory() << '\t' <<
-		cat_item.getQuantity() << '\t' << cat_item.getSerial() << '\t' << cat_item.getPrice() << '\n';
+	cat_file << '\n'  << '\n' << cat_item.getName() << '\n' << cat_item.getCategory() << '\n' <<
+		cat_item.getQuantity() << '\n' << cat_item.getSerial() << '\n' << cat_item.getPrice();
 	cat_file.close();
 	/*catalogue[numCatalogItems].setName(cat_item.getName());
 	catalogue[numCatalogItems].setCatagory(cat_item.getCategory());
@@ -41,38 +41,55 @@ void deleteItem(string name)
 	fstream cat_file;
 	cat_file.open("Catalog.txt");
 	string line, file;
+	int counter = 0;
 	while (getline(cat_file, line))
 	{
-		pos = line.find(name);
-		if (pos == string::npos)
-			file.append(line);
+		if (counter % 6 == 0)
+		{
+			pos = line.find(name);
+			if (pos == string::npos)
+				file.append(line + '\n');
+			else
+			{
+				getline(cat_file, line);
+				getline(cat_file, line);
+				getline(cat_file, line);
+				getline(cat_file, line);
+				counter += 5;
+			}
+		}
+		else file.append(line + '\n');
+		counter++;
 	}
-	cat_file << file;
+	cat_file.close();
+	ofstream out_cat_file("Catalog.txt", ios::trunc);
+	out_cat_file << file;
+	out_cat_file.close();
+	cat_file.open("Catalog.txt");
 
 	cat_file.seekg(0, ios::beg);
-	catalog.erase(catalog.begin, catalog.end);
-	while (cat_file.good())
-	{
-		temp.setName(line);
+	catalog.erase(catalog.begin(), catalog.end());
+	while (!cat_file.eof()) {
+		if (cat_file.eof())
+			break;
 		getline(cat_file, line);
-		temp.setCatagory(line);
-		getline(cat_file, line);
-		temp.setQuantity(stoi(line));
-		getline(cat_file, line);
-		temp.setSerial(stoi(line));
-		getline(cat_file, line);
-		temp.setPrice(stod(line));
-		catalog.push_back(temp);
-		/*catalogue[numCatalogItems].setName(line);
-		cat_file >> line;
-		catalogue[numCatalogItems].setCatagory(line);
-		cat_file >> line;
-		catalogue[numCatalogItems].setQuantity(stoi(line));
-		cat_file >> line;
-		catalogue[numCatalogItems].setSerial(stoi(line));
-		cat_file >> line;
-		catalogue[numCatalogItems].setPrice(stoi(line));
-		numCatalogItems++;*/
+		if (line.size() == 0) {
+			continue;
+		}
+		else {
+
+			temp.setName(line);
+			getline(cat_file, line);
+			temp.setCatagory(line);
+			getline(cat_file, line);
+			temp.setQuantity(stoi(line));
+			getline(cat_file, line);
+			temp.setSerial(stoi(line));
+			getline(cat_file, line);
+			temp.setPrice(stod(line));
+			catalog.push_back(temp);
+
+		}
 	}
 	cat_file.close();
 }
