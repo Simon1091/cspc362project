@@ -19,10 +19,10 @@ e)  Any important data structure in class / functions
 f)  choice of a specific algorithm within service / function
 e.g.choosing quick sort rather than bubble sort etc.
 */
+	
 int main() {
 	//for log in by Derek
 	int accountNumber;// gets its value from LogInMenu; this refers to the position of the logged in user in the account array!
-
 
 	ReviewCart review;
 	ShoppingCart cart;

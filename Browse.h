@@ -47,10 +47,13 @@ ofstream outputFile;
 						
 					}
 				}
+				int count = 1;
 				for (item i : catalog) {
-					cout <<  i.getSerial() << ". " << "name: " << i.getName() << endl;
+				
+					cout << count++ <<  ". " << "name: " << i.getName() << endl;
 					cout << "category: " << i.getCategory() << endl;
 					cout << "quantity: " << i.getQuantity() << endl;
+					cout << "Serial: " << i.getSerial() << endl;
 					cout << "price: " << i.getPrice() << endl;
 					cout << endl;
 				}
@@ -60,7 +63,10 @@ ofstream outputFile;
 		case 2:
 			std::cout << "Enter the item number to add item to cart\n";
 			std::cin >> itemChoice;
-
+			if (itemChoice > catalog.size()) {
+				cout << "invalid item number" << endl;
+				break;
+			}
 			std::cout << "Select quantity?";
 			std::cin >> quantityChoice;
 			if (quantityChoice > catalog[itemChoice - 1].getQuantity()) {
@@ -76,8 +82,8 @@ ofstream outputFile;
 				cart_.addItem(chosenItem);
 				int updatedQuantity = catalog[itemChoice - 1].getQuantity() - quantityChoice;
 				if (updatedQuantity == 0) {
-					
-					catalog.erase(catalog.begin() + (itemChoice- 1));
+					int index = itemChoice - 1;
+					catalog.erase(catalog.begin() + index);
 					for (item i : catalog) {
 						
 							outputFile << i.getName() << "\n";
@@ -88,7 +94,7 @@ ofstream outputFile;
 							outputFile << "\n";
 						
 					}
-					
+					outputFile.close();
 				}
 				else {
 					catalog[itemChoice - 1].setQuantity(updatedQuantity);
@@ -102,7 +108,7 @@ ofstream outputFile;
 						outputFile << to_string(i.getPrice()) << "\n";
 						outputFile << "\n";
 					}
-					
+					outputFile.close();
 				}
 			}
 			break;
